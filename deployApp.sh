@@ -3,8 +3,11 @@
 # Load PAT from an environment variable
 GIT_TOKEN=$(cat $HOME/ting/pat)
 
+# Prompt user to specify which branch to pull
+read -p "Enter the branch name to pull: " BRANCH_NAME
+
 # Perform git pull with PAT and capture the exit status
-git pull https://EmilMotroen:$GIT_TOKEN@github.com/EmilMotroen/deployApp.git
+git pull https://EmilMotroen:$GIT_TOKEN@github.com/EmilMotroen/deployApp.git $BRANCH_NAME
 GIT_PULL_STATUS=$?
 
 # Check if git pull was successful
