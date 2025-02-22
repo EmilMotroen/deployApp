@@ -4,8 +4,7 @@ import datetime
 
 def print_current_time():
     print("Current time:", datetime.datetime.now())
-    print(f'Moelv')
-
+    print('City: Yharnam')
 scheduler = BlockingScheduler(timezone=utc, job_defaults={'misfire_grace_time': 10})
 scheduler.add_job(print_current_time, 'interval', minutes=1)
 
