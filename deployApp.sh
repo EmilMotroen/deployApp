@@ -3,10 +3,16 @@
 # Load PAT from an environment variable
 GIT_TOKEN=$(cat $HOME/ting/pat)
 
-# Perform git pull with PAT
+# Perform git pull with PAT and capture the exit status
 git pull https://EmilMotroen:$GIT_TOKEN@github.com/EmilMotroen/deployApp.git
+GIT_PULL_STATUS=$?
 
-# Reload and restart the service
-sudo systemctl daemon-reload
-sudo systemctl restart myscript.service
-sudo systemctl status myscript.service
+# Check if git pull was successful
+if [ $GIT_PULL_STATUS -eq 0 ]; then
+    # Reload and restart the service
+    sudo systemctl daemon-reload
+    sudo systemctl restart myscript
+    sudo systemctl status myscript
+else
+    echo "git pull failed with exit status $GIT_PULL_STATUS. Service not restarted."
+fi
