@@ -1,0 +1,13 @@
+[Unit]
+Description=My Python Script Service
+After=network.target
+
+[Service]
+ExecStart=/home/emotr/python/venv/bin/python3.9 /home/emotr/python/main.py
+WorkingDirectory=/home/emotr/python/
+Restart=always
+User=emotr
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
