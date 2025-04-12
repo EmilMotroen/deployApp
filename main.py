@@ -4,12 +4,8 @@ import datetime
 
 def print_current_time():
     print("Current time:", datetime.datetime.now())
-<<<<<<< HEAD
     print('New York from main branch')
-=======
-    print('Mendoza from dev branch')
 
->>>>>>> 019e5d725d6b899431e7961b922a923a50de9ea3
 scheduler = BlockingScheduler(timezone=utc, job_defaults={'misfire_grace_time': 10})
 scheduler.add_job(print_current_time, 'interval', minutes=1)
 
