@@ -4,7 +4,7 @@ import datetime
 
 def print_current_time():
     print("Current time:", datetime.datetime.now())
-    print('Mendoza')
+    print('Mendoza from dev branch for real this time')
 scheduler = BlockingScheduler(timezone=utc, job_defaults={'misfire_grace_time': 10})
 scheduler.add_job(print_current_time, 'interval', minutes=1)
 
