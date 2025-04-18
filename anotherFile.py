@@ -1,1 +1,1 @@
-print('Test editing another file in main to avoid divergent branch ')
+print('Test editing another file in dev branch to avoid divergent branch ')
