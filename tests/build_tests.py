@@ -10,4 +10,4 @@ def test_variable():
 def test_constants():
     e = 2.71
     pi = 3.14
-    assert e != pi
+    assert e == pi
